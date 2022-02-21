@@ -1,22 +1,20 @@
 var navBar = document.querySelector(".navbar");
-var navlinks = document.querySelectorAll(".nav-link");
+var navLinks = document.querySelectorAll(".nav-link");
 
 var backToTop = document.querySelector(".back-to-top");
 
+var current = document.querySelector(".active");
 
-for (var i = 0; i < navlinks.length; i++) {
-     
-     navlinks[i].addEventListener("click", function() {
-          var current = document.querySelector(".active");
+navLinks.forEach((navLink) => {
+     navLink.addEventListener("click", function() {
           current.classList.remove("active");
-          this.classList.add("active");
-     
-     });
-}
+          navLink.classList.add("active");
+     })
+})
 
 
 function scrollNavbar() {
-     if(document.documentElement.scrollTop > 50) {
+     if(document.documentElement.scrollTop > 500) {
           navBar.classList.add("scroll")
      } else {
           navBar.classList.remove("scroll")
@@ -31,31 +29,32 @@ function scrollNavbar() {
 }
 
 
-var section = document.querySelectorAll("section");
+var sections = document.querySelectorAll("section");
 
-function inViewPort(element) {
+sections.forEach((section) => {
+     const sectionTop = section.offsetTop;
 
-     let bounding = element.getBoundingClientRect();
+     if(scrollY >= sectionTop) {
+          current = section.getAttribute("id");
+          console.log(section)
+     }
+})
 
-          if (bounding.top <= 0 && bounding.bottom >= 0){
-               var current = document.querySelector(".active");
-               // current.classList.remove("active");
 
-          } else {
-
-          };
-
-     
-}
 
 window.addEventListener("scroll", () => {
      scrollNavbar();
-     
-     
-     
-     for (i = 0; i < section.length; i++) {
-          inViewPort(section[i])
+
+     sections.forEach((section) => {
+     const sectionTop = section.offsetTop;
+
+     if(scrollY >= sectionTop) {
+          current = section.getAttribute("id");
      }
+
+
+     });
+
      
 });
 
