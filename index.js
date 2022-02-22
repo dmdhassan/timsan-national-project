@@ -1,20 +1,27 @@
-var navBar = document.querySelector(".navbar");
-var navLinks = document.querySelectorAll(".nav-link");
+let navBar = document.querySelector(".navbar");
+let navLinks = document.querySelectorAll(".nav-link");
 
-var backToTop = document.querySelector(".back-to-top");
+let backToTop = document.querySelector(".back-to-top");
 
-var current = document.querySelector(".active");
+let current = document.querySelector(".active");
+
+let navCollapse = document.querySelector(".navbar-collapse");
 
 navLinks.forEach((navLink) => {
+     
      navLink.addEventListener("click", function() {
+          
+          navCollapse.classList.remove('show');
+          navLink.classList.add('active');
           current.classList.remove("active");
-          navLink.classList.add("active");
-     })
-})
+          current = navLink
+     });
+});
+
 
 
 function scrollNavbar() {
-     if(document.documentElement.scrollTop > 500) {
+     if(document.documentElement.scrollTop > 150) {
           navBar.classList.add("scroll")
      } else {
           navBar.classList.remove("scroll")
@@ -29,34 +36,17 @@ function scrollNavbar() {
 }
 
 
+
 var sections = document.querySelectorAll("section");
-
-sections.forEach((section) => {
-     const sectionTop = section.offsetTop;
-
-     if(scrollY >= sectionTop) {
-          current = section.getAttribute("id");
-          console.log(section)
-     }
-})
-
 
 
 window.addEventListener("scroll", () => {
      scrollNavbar();
 
-     sections.forEach((section) => {
-     const sectionTop = section.offsetTop;
+     // scrollSpy()
 
-     if(scrollY >= sectionTop) {
-          current = section.getAttribute("id");
-     }
-
-
-     });
 
      
 });
-
 
 

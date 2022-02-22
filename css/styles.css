@@ -30,9 +30,28 @@ img {
      box-shadow: 0 4px 12px 0 rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%);
 }
 
-/* .navbar-collapse {
+@media (max-width: 991px) {
+     .navbar-collapse {
      background: #FFF;
-} */
+     padding: 5%;
+}
+
+.navbar-collapse a.nav-link {
+     color: #000;
+     text-transform: uppercase;
+     max-width: fit-content;
+     text-align: left;
+}
+
+.navbar-collapse a.nav-link:hover {
+     font-weight: 700;
+     transition: .8s ease-out;
+}
+
+}
+
+
+
 
 a.nav-link {
      color: #Fff;
@@ -118,6 +137,9 @@ section {
      line-height: 1.5;
 }
 
+nav button .fas {
+     color: #FFF;
+}
 
 .fab.social-link {
      border-radius: 50%;
