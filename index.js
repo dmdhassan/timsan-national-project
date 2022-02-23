@@ -2,7 +2,6 @@ let navBar = document.querySelector(".navbar");
 let navLinks = document.querySelectorAll(".nav-link");
 
 let backToTop = document.querySelector(".back-to-top");
-
 let current = document.querySelector(".active");
 
 let navCollapse = document.querySelector(".navbar-collapse");
@@ -35,18 +34,50 @@ function scrollNavbar() {
      
 }
 
+var slideUp = document.querySelectorAll(".slide-up");
+var slideLeft = document.querySelectorAll(".slide-left");
 
+var slideRight = document.querySelectorAll(".slide-right");
+var deviceHeight = window.innerHeight;
 
-var sections = document.querySelectorAll("section");
+function animateOnScroll() {
+     for (var i = 0; i < slideUp.length; i++) {
+     var elementTop = slideUp[i].getBoundingClientRect().top;
+     
+     if (elementTop <= deviceHeight - 100) {
+          slideUp[i].classList.add("scroll");
+     } else {
+          slideUp[i].classList.remove("scroll");
+     }
+}
+
+for (var i = 0; i < slideLeft.length; i++) {
+     var elementTop = slideLeft[i].getBoundingClientRect().top;
+     
+     if (elementTop <= deviceHeight - 100) {
+          slideLeft[i].classList.add("scroll");
+     } else {
+          // slideLeft[i].classList.remove("scroll");
+     }
+}
+
+for (var i = 0; i < slideRight.length; i++) {
+     var elementTop = slideRight[i].getBoundingClientRect().top;
+     
+     if (elementTop <= deviceHeight - 100) {
+          slideRight[i].classList.add("scroll");
+     } else {
+          // slideRight[i].classList.remove("scroll");
+     }
+}
+
+}
+
 
 
 window.addEventListener("scroll", () => {
      scrollNavbar();
-
-     // scrollSpy()
-
-
-     
+     animateOnScroll()
 });
 
 
