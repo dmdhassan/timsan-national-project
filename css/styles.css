@@ -2,7 +2,6 @@ body {
   background: #fff;
   color: #666666;
   font-family: 'Montserrat', sans-serif;
-  overflow-x: hidden;
   text-align: center;
 }
 
@@ -102,8 +101,8 @@ section {
      padding: 0;
 }
 
-.about {
-
+.about div{
+     overflow: hidden;
 }
 
 .events {
@@ -111,7 +110,7 @@ section {
 }
 
 .executives {
-     background: #FFF;
+     overflow: hidden;
 }
 
 .gallery {
@@ -261,6 +260,18 @@ nav button .fas {
 }
 
 .slide-up.scroll {
+     opacity: 1;
+     transform: translateY(0);
+     transition: all 1s ease-in-out;
+}
+
+.slide-down {
+     opacity: 0;
+     transform: translateY(-50%);
+     transition: all 1s ease-in-out;
+}
+
+.slide-down.scroll {
      opacity: 1;
      transform: translateY(0);
      transition: all 1s ease-in-out;

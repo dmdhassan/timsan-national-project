@@ -35,19 +35,20 @@ function scrollNavbar() {
 }
 
 var slideUp = document.querySelectorAll(".slide-up");
+var slideDown = document.querySelectorAll(".slide-down");
 var slideLeft = document.querySelectorAll(".slide-left");
 
 var slideRight = document.querySelectorAll(".slide-right");
 var deviceHeight = window.innerHeight;
 
+
 function animateOnScroll() {
+
      for (var i = 0; i < slideUp.length; i++) {
      var elementTop = slideUp[i].getBoundingClientRect().top;
      
      if (elementTop <= deviceHeight - 100) {
           slideUp[i].classList.add("scroll");
-     } else {
-          slideUp[i].classList.remove("scroll");
      }
 }
 
@@ -56,8 +57,6 @@ for (var i = 0; i < slideLeft.length; i++) {
      
      if (elementTop <= deviceHeight - 100) {
           slideLeft[i].classList.add("scroll");
-     } else {
-          // slideLeft[i].classList.remove("scroll");
      }
 }
 
@@ -66,8 +65,6 @@ for (var i = 0; i < slideRight.length; i++) {
      
      if (elementTop <= deviceHeight - 100) {
           slideRight[i].classList.add("scroll");
-     } else {
-          // slideRight[i].classList.remove("scroll");
      }
 }
 
